@@ -71,7 +71,7 @@ export const getDashboardStats = async (req, res) => {
     // full dataset
     const allData = await FedBalance.find().sort({ date: -1 });
     // last 50 rows descending
-    const table = await FedBalance.find().limit(50).sort({ date: -1 });
+    const table = await FedBalance.find({}, { date: 1, fed: 1, tga: 1, rrp: 1,  net_liquidity: 1, net_change_net_liquidity: 1 }).limit(50).sort({ date: -1 });
 
     // granular time views
     const thirtyDaysData = await FedBalance.find().limit(30).sort({ date: -1 });

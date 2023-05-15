@@ -25,7 +25,7 @@ import NetChart from 'components/NetChart';
 const Dashboard = () => {
   const theme = useTheme();
   const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
-  const { data, isLoading } = useGetDashboardStatsQuery({}, { _id: 0 });
+  const { data, isLoading } = useGetDashboardStatsQuery({}, { _id: 0, net_change_fed: 0, net_change_tga: 0, net_change_rrp: 0, net_change_net_liquidity: 0 });
 
   const downloadFile = ({ data, fileName, fileType }) => {
     // create blob from array data for csv dl
@@ -114,15 +114,15 @@ const Dashboard = () => {
       renderCell: (params) =>
         `$${Number(params.value).toLocaleString("en-US")}`,
     },
-    {
-      field: "net_change_fed",
-      headerName: "Net Change Fed",
-      flex: 1,
-      cellClassName: (params) =>
-        params.value < 0 ? "red-cell" : params.value > 0 ? "green-cell" : "",
-      renderCell: (params) =>
-        `$${Number(params.value).toLocaleString("en-US")}`,
-    },
+    // {
+    //   field: "net_change_fed",
+    //   headerName: "Net Change Fed",
+    //   flex: 1,
+    //   cellClassName: (params) =>
+    //     params.value < 0 ? "red-cell" : params.value > 0 ? "green-cell" : "",
+    //   renderCell: (params) =>
+    //     `$${Number(params.value).toLocaleString("en-US")}`,
+    // },
     {
       field: "rrp",
       headerName: "RRP",
@@ -130,15 +130,15 @@ const Dashboard = () => {
       renderCell: (params) =>
         `$${Number(params.value).toLocaleString("en-US")}`,
     },
-    {
-      field: "net_change_rrp",
-      headerName: "Net Change RRP",
-      flex: 1,
-      cellClassName: (params) =>
-        params.value < 0 ? "red-cell" : params.value > 0 ? "green-cell" : "",
-      renderCell: (params) =>
-        `$${Number(params.value).toLocaleString("en-US")}`,
-    },
+    // {
+    //   field: "net_change_rrp",
+    //   headerName: "Net Change RRP",
+    //   flex: 1,
+    //   cellClassName: (params) =>
+    //     params.value < 0 ? "red-cell" : params.value > 0 ? "green-cell" : "",
+    //   renderCell: (params) =>
+    //     `$${Number(params.value).toLocaleString("en-US")}`,
+    // },
     {
       field: "tga",
       headerName: "TGA",
@@ -146,15 +146,15 @@ const Dashboard = () => {
       renderCell: (params) =>
         `$${Number(params.value).toLocaleString("en-US")}`,
     },
-    {
-      field: "net_change_tga",
-      headerName: "Net Change TGA",
-      flex: 1,
-      cellClassName: (params) =>
-        params.value < 0 ? "red-cell" : params.value > 0 ? "green-cell" : "",
-      renderCell: (params) =>
-        `$${Number(params.value).toLocaleString("en-US")}`,
-    },
+    // {
+    //   field: "net_change_tga",
+    //   headerName: "Net Change TGA",
+    //   flex: 1,
+    //   cellClassName: (params) =>
+    //     params.value < 0 ? "red-cell" : params.value > 0 ? "green-cell" : "",
+    //   renderCell: (params) =>
+    //     `$${Number(params.value).toLocaleString("en-US")}`,
+    // },
     {
       field: "net_liquidity",
       headerName: "Net Liquidity",
