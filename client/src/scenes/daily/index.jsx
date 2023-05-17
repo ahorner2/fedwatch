@@ -69,19 +69,29 @@ const Breakdown = ({ isDashboard = false }) => {
                   fill: theme.palette.secondary[200],
                 },
               },
+              line: {
+                stroke: {
+                  color: theme.palette.secondary[200],
+                },
+              },
               ticks: {
                 line: {
                   stroke: theme.palette.secondary[200],
                   strokeWidth: 1,
                 },
-                text: {
-                  fill: theme.palette.secondary[200],
+              text: {
+                fill: theme.palette.secondary[200],
                 },
               },
             },
             legends: {
               text: {
                 fill: theme.palette.secondary[200],
+              },
+            },
+            crosshair: {
+              line: {
+                stroke: theme.palette.secondary[200],
               },
             },
             tooltip: {
@@ -186,7 +196,8 @@ const Breakdown = ({ isDashboard = false }) => {
                       {
                         on: "hover",
                         style: {
-                          itemBackground: "rgba(0, 0, 0, .03)",
+                          stroke: "rgba(255, 237, 194, .03)",
+                          itemBackground: "rgba(255, 237, 194, .03)",
                           itemOpacity: 1,
                         },
                       },

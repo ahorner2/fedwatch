@@ -20,6 +20,11 @@ const List = ({ isDashboard = false }) => {
       headerName: "Date",
       flex: 0.75,
       cellClassName: "name-column--cell",
+      renderCell: (params) => {
+        const date = new Date(params.value);
+        const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+        return <span>{formattedDate}</span>
+      },
     },
     {
       field: "fed",

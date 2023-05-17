@@ -1,6 +1,6 @@
 import React, { useMemo }  from 'react';
 import { useTheme, Box } from '@mui/material';
-import { ResponsiveBar, BarTooltipDatum } from '@nivo/bar';
+import { ResponsiveBar } from '@nivo/bar';
 import { useGetMonthlyQuery } from 'state/api';
 import Header from 'components/Header';
 
@@ -52,7 +52,7 @@ const Monthly = () => {
             precision: "day",
             useUTC: false,
           }}
-          xFormat="time:%m %d %y"
+          xFormat="time:%m/%d/%y"
           yScale={{
             type: "linear",
             min: "0",
@@ -87,6 +87,11 @@ const Monthly = () => {
             legends: {
               text: {
                 fill: theme.palette.secondary[200],
+              },
+            },
+            crosshair: {
+              line: {
+                stroke: theme.palette.secondary[200],
               },
             },
             tooltip: {

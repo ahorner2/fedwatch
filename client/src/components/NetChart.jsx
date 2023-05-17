@@ -57,6 +57,11 @@ const NetChart = ({ isDashboard = false }) => {
             fill: theme.palette.secondary[200],
           },
         },
+        crosshair: {
+          line: {
+            stroke: theme.palette.secondary[200],
+          },
+        },
         tooltip: {
           container: {
             color: theme.palette.primary.main,
