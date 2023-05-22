@@ -20,6 +20,7 @@ import {
   ShowChartOutlined,
   TableChartOutlined,
   StackedBarChartOutlined,
+  MonetizationOnOutlined,
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -58,6 +59,14 @@ const navItems = [
     text: "Monthly",
     icon: <StackedBarChartOutlined />,
   },
+  {
+    text: "Money Supply Overview",
+    icon: null,
+  },
+  {
+    text: "MSupply",
+    icon: <MonetizationOnOutlined />,
+  },
 ];
 
 const Sidebar = ({
@@ -77,7 +86,7 @@ const Sidebar = ({
 
   return (
     <Box component="nav">
-      {isSidebarOpen && (
+      {isNonMobile && isSidebarOpen && (
         <Drawer
           open={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}

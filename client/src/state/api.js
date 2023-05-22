@@ -10,7 +10,8 @@ export const api = createApi({
     "Fed", 
     "Net",
     "Monthly",
-    "Dashboard"
+    "Dashboard",
+    "Msupply"
   ],
   endpoints: (build) => ({
     getBalance: build.query({
@@ -41,6 +42,10 @@ export const api = createApi({
       query: () => "general/dashboard",
       providesTags: ["Dashboard"],
     }),
+    getMSupply: build.query({
+      query: () => "money/msupply",
+      providesTags: ["Msupply"],
+    }),
   }),
 });
 
@@ -53,4 +58,5 @@ export const {
   useGetNetQuery,
   useGetMonthlyQuery,
   useGetDashboardStatsQuery,
+  useGetMSupplyQuery,
 } = api;

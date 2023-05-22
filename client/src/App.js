@@ -11,6 +11,7 @@ import Net from "scenes/net";
 import Daily from "scenes/daily";
 import Breakdown from "scenes/breakdown";
 import Monthly from "scenes/monthly";
+import MSupply from "scenes/msupply";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -30,6 +31,7 @@ function App() {
               <Route path="/breakdown" element={<Breakdown />} />
               <Route path="/daily" element={<Daily />} />
               <Route path="/monthly" element={<Monthly />} />
+              <Route path="/msupply" element={<MSupply />} />
             </Route>
           </Routes>
         </ThemeProvider>
