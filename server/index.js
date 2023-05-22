@@ -6,10 +6,12 @@ import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import generalRoutes from './routes/general.js';
+import moneyRoutes from './routes/money.js';
 
 //data imports 
 import FedBalance from "./models/fedBalance.js";
-import { FedNumbers, newData} from "./data/index.js";
+import MoneySupply from './models/moneySupply.js';
+import { FedNumbers, newData, moneySupply } from "./data/index.js";
 
 /* CONFIG */
 dotenv.config();
@@ -24,6 +26,7 @@ app.use(cors());
 
 /* ROUTES */
 app.use("/general", generalRoutes);
+app.use("/money", moneyRoutes);
 
 /* DATA UPDATES */
 // async function updateData(newData) {
@@ -47,22 +50,19 @@ mongoose
   .then(() => {
     console.log("Connected to MongoDB");
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
-    
+
+    /* ONLY ADD ONCE */
+    // FedBalance.insertMany(FedNumbers);
+    // MoneySupply.insertMany(moneySupply)
+
     // Call the data update function
     // updateData(newData)
-      // .then(() => {
-      //   console.log("Data update completed");
-       
-      // })
-      // .catch((error) => {
-      //   console.error("Data update error:", error);
-      //   mongoose.disconnect(); // Disconnect from MongoDB in case of an error
-      // });
+    // .then(() => {
+    //   console.log("Data update completed");
 
+    // })
+    // .catch((error) => {
+    //   console.error("Data update error:", error);
+    //   mongoose.disconnect(); // Disconnect from MongoDB in case of an error
+    // });
   }).catch((error) => console.error(`${error} did not connect`));
-
-// .then(() => {
-//   app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
-//   /* ONLY ADD ONCE */
-//   // FedBalance.insertMany(FedNumbers);
-// }).catch((error) => console.log(`${error} did not connect`));
