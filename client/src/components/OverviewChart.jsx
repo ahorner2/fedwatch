@@ -2,7 +2,6 @@ import React, { useMemo } from "react";
 import { useTheme } from "@mui/material";
 import { useGetMSupplyQuery } from "state/api";
 import { ResponsiveLine } from "@nivo/line";
-import { Defs } from "@nivo/core";
 import moment from "moment";
 
 const getRequiredDateFormat = (timeStamp, format = "MM-DD-YYYY") => {
@@ -46,11 +45,16 @@ const OverviewChart = ({ isDashboard = false, view }) => {
         const curM2 = parseFloat(M2); 
         const curM3 = parseFloat(M3);
 
-        const formattedDate = new Date(date).toLocaleDateString();
+        const formattedDate = getRequiredDateFormat(date, "M/DD/YYYY")
+        // const formattedDate = new Date(date).toLocaleDateString();
 
         m1Line.data.push({ x: formattedDate, y: curM1 });
         m2Line.data.push({ x: formattedDate, y: curM2 });
         m3Line.data.push({ x: formattedDate, y: curM3 });
+
+        m1Line.data.sort((a, b) => new Date(a.x) - new Date(b.x));
+        m2Line.data.sort((a, b) => new Date(a.x) - new Date(b.x));
+        m3Line.data.sort((a, b) => new Date(a.x) - new Date(b.x));
         
         // m1Line.data = [
         //   ...m1Line.data,
@@ -157,15 +161,16 @@ const OverviewChart = ({ isDashboard = false, view }) => {
       axisTop={null}
       axisRight={null}
       axisBottom={{
-        // convert date objects to str
-        format: (values) => {
-          const mth = values.toString().slice(0, 2);
-          if (data.includes(mth)) {
-            data = data.filter((item) => item !== mth);
-            return `${getRequiredDateFormat(values, "MMMM-DD")}`;
-          } else return "";
-        },
-        tickValues: "every month",
+        // // convert date objects to str
+        // format: (values) => {
+        //   const mth = values.toString().slice(0, 2);
+        //   if (data.includes(mth)) {
+        //     data = data.filter((item) => item !== mth);
+        //     return `${getRequiredDateFormat(values, "MMMM-DD")}`;
+        //   } else return "";
+        // },
+        format:"%Y",
+        tickValues: "every year",
         orient: "bottom",
         tickSize: 5,
         tickPadding: 5,

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   DarkModeOutlined,
   LightModeOutlined,
@@ -16,10 +16,33 @@ import {
   Toolbar,
   useTheme,
 } from "@mui/material";
+import { useHistory } from "react-router-dom";
 
-const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
+const Navbar = ({ isSidebarOpen, setIsSidebarOpen, navItems }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
+  const [searchValue, setSearchValue] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+
+
+  const handleSearchChange = (event) => {
+    const value = event.target.value;
+    setSearchValue(value);
+
+    // Filter navItems on search value
+    const filteredResults = navItems.filter(
+      (item) =>
+        item.text.toLowerCase().includes(value.toLowerCase()) && item.icon
+    );
+    setSearchResults(filteredResults);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    // search functionality here
+    console.log("Search submitted:", searchValue);
+    setSearchValue("");
+  };
 
   return (
     <AppBar
@@ -40,8 +63,14 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
             gap="3rem"
             p="0.1rem 1.5rem" // top and bottom w/ 2 vals
           >
-            <InputBase placeholder="Search..." />
-            <IconButton>
+            <form onSubmit={handleSearchSubmit}>
+              <InputBase
+                placeholder="Search..."
+                value={searchValue}
+                onChange={handleSearchChange}
+              />
+            </form>
+            <IconButton type="submit" onClick={handleSearchSubmit}>
               <Search />
             </IconButton>
           </FlexBetween>
@@ -61,6 +90,14 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           </IconButton>
         </FlexBetween>
       </Toolbar>
+      {/* Display search suggestions or options */}
+      {searchResults.length > 0 && (
+        <ul>
+          {searchResults.map((result) => (
+            <li key={result.text}>{result.text}</li>
+          ))}
+        </ul>
+      )}
     </AppBar>
   );
 };

@@ -4,6 +4,24 @@ import FlexBetween from "./FlexBetween";
 
 const StatBox = ({ title, value, increase, icon, description }) => {
   const theme = useTheme();
+  let color;
+
+  // if string check for -, else if > 0
+  if (typeof value === "string") {
+    color = value.includes("-")
+      ? theme.palette.error[500]
+      : theme.palette.success[500];
+  } else if (typeof value === "number") {
+    color = value > 0 ? theme.palette.success[500] : theme.palette.error[500];
+    value = value.toLocaleString("en-US", { 
+      style: "currency",
+      currency: "USD",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+      notation: "compact"
+    })
+  }
+
   return (
     <Box
       gridColumn="span 2"
@@ -26,8 +44,9 @@ const StatBox = ({ title, value, increase, icon, description }) => {
         variant="h2"
         fontWeight="600"
         sx={{ 
-          color: 
-          value && value.includes("-") ? theme.palette.error[500] : theme.palette.success[500] }}>
+          color: color,
+          // value && value > 0 ? theme.palette.error[500] : theme.palette.success[500] 
+          }}>
         {value}
       </Typography>
       <FlexBetween gap="1rem">

@@ -16,3 +16,22 @@ body,
 .green-cell {
   color: #46acb7;
 }
+
+@keyframes jiggle {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  25% {
+    transform: rotateZ(-5deg);
+  }
+  75% {
+    transform: rotateZ(5deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+.jiggle-icon:hover {
+  animation: jiggle 0.5s 1;
+}

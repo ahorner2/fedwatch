@@ -100,6 +100,9 @@ const Sidebar = ({
               boxSixing: "border-box",
               borderWidth: isNonMobile ? 0 : "2px",
               width: drawerWidth,
+              transition: theme.transitions.create("width", {
+                easing: theme.transitions.easing.sharp,
+              }),
             },
           }}>
           <Box width="100%">
@@ -166,7 +169,9 @@ const Sidebar = ({
                             active === lcText
                               ? theme.palette.primary[600]
                               : theme.palette.secondary[200],
-                        }}>
+                        }}
+                        className="jiggle-icon"
+                      >
                         {icon}
                       </ListItemIcon>
                       <ListItemText primary={text} />
