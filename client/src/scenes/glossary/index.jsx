@@ -6,6 +6,8 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  List,
+  ListItem,
 } from "@mui/material";
 import { ExpandMoreOutlined } from '@mui/icons-material';
 import Header from 'components/Header';
@@ -15,8 +17,8 @@ const Glossary = () => {
   return (
     <Box m="1.5rem 2.5rem">
       <Header
-        title="Glossary & FAQ"
-        subtitle="Terms, Acronyms, and Frequently Asked Questions"
+        title="Glossary"
+        subtitle="Terms & Acronyms"
       />
       <Box mt="20px">
         <Accordion
@@ -110,41 +112,34 @@ const Glossary = () => {
           }}>
           <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
             <Typography color={theme.palette.secondary[200]} variant="h5">
-              How do the Fed, TGA, and RRP line items work to influence Federal
-              Balance Sheet?
-            </Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <Typography>
-              Like any institution, the Federal Reserve has its assets and its
-              liabilites. The Federal Reserve's primary asset is the money it
-              issues.
-            </Typography>
-          </AccordionDetails>
-        </Accordion>
-
-        <Accordion
-          defaultExpanded
-          sx={{
-            "& .MuiButtonBase-root": {
-              backgroundColor: theme.palette.background.alt,
-              color: theme.palette.secondary[200],
-            },
-            "& .MuiCollapse-root": {
-              backgroundColor: theme.palette.background.alt,
-            },
-          }}>
-          <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
-            <Typography color={theme.palette.secondary[200]} variant="h5">
               M1 Supply:
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              The M1 Supply consists of all currency, demand deposits, and
-              liquid deposits such as savings accounts. M1 tracks the most
-              liquid sectors of the money supply, and excludes financial
-              instruments such as stocks, bonds, etc.
+            <Typography color={theme.palette.secondary[100]}>
+              M1 tracks the currency in circulation and excludes instruments
+              such as stocks and bonds. M1 considers:
+              <List>
+                <ListItem>
+                  <Typography fontStyle="italic">
+                    1. All physical currency held outside the Treasury, Federal
+                    Reserve Banks, and depsoitory insitutions.
+                  </Typography>
+                </ListItem>
+                <ListItem>
+                  <Typography fontStyle="italic">
+                    2. Demand deposits to commercial banks, excluding those made
+                    by the Federal Reserve, its subsidiaries, foreign banks, and
+                    any additional U.S. Government accounts.
+                  </Typography>
+                </ListItem>
+                <ListItem>
+                  <Typography fontStyle="italic">
+                    3. Savings accounts, OCDs (interest-bearing debt
+                    securities), and other checkable deposits.
+                  </Typography>
+                </ListItem>
+              </List>
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -166,7 +161,19 @@ const Glossary = () => {
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>The M2 Supply...</Typography>
+            <Typography>The M2 supply considers slightly less liquid despoits plus all the items that compose the M1 Supply. Additions include: </Typography>
+            <List>
+              <ListItem>
+                <Typography fontStyle="italic">
+                  1. Certificates of deposit (CDs) of less than $100,000.00.
+                </Typography>
+              </ListItem>
+              <ListItem>
+                <Typography fontStyle="italic">
+                  2. Retail balances held in Money Market Funds (MMFs).
+                </Typography>
+              </ListItem>
+            </List>
           </AccordionDetails>
         </Accordion>
         <Accordion
@@ -186,7 +193,11 @@ const Glossary = () => {
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>The M3 Supply...</Typography>
+            <Typography>
+              The M3 formerly accounted for all currency in circulation, including dollars held in the reserves of foreign nations. As of 2006, 
+              this was discontinued in favor of a per country split. Today, outside of aggregation, the M3 for the United States, should mirror the M2 supply.
+            
+            </Typography>
           </AccordionDetails>
         </Accordion>
       </Box>
