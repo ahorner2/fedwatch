@@ -1,8 +1,9 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { useGetListQuery } from "state/api";
 import { ResponsiveLine } from "@nivo/line";
 import { Box, useTheme } from "@mui/material";
 import Header from "components/Header";
+import CustomTooltip from "components/CustomTooltip";
 
 const props = {
   enableSlices: "x",
@@ -16,8 +17,10 @@ const Breakdown = ({ isDashboard = false }) => {
   const dataAndViews = useMemo(() => {
     if (!data || isLoading) return [];
 
-    const sortedData = [...data].sort((a, b) => new Date(a.date) - new Date(b.date));
-    const lastWeekData = sortedData.slice(-7);    
+    const sortedData = [...data].sort(
+      (a, b) => new Date(a.date) - new Date(b.date)
+    );
+    const lastWeekData = sortedData.slice(-7);
 
     const fedLine = {
       id: "net_change_fed",
@@ -45,6 +48,7 @@ const Breakdown = ({ isDashboard = false }) => {
     };
     const result = [fedLine, tgaLine, rrpLine];
     return result;
+  // eslint-disable-next-line
   }, [data]);
 
   return (
@@ -156,6 +160,7 @@ const Breakdown = ({ isDashboard = false }) => {
           pointBorderColor={{ from: "serieColor" }}
           pointLabelYOffset={-12}
           useMesh={true}
+          tooltip={CustomTooltip}
           tooltipFormat={value => Number(value).toLocaleString("en-US", {minimumFractionDigits: 2}) + "$"}
           legends={
             !isDashboard

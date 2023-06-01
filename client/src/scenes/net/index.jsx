@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo } from "react";
 import { Box, useTheme } from '@mui/material';
 import { useGetNetQuery } from 'state/api';
 import Header from 'components/Header';
@@ -8,6 +8,7 @@ const Net = ({ isDashboard = false }) => {
   // eslint-disable-next-line
   const theme = useTheme();
   const { data, isLoading } = useGetNetQuery();
+
   // eslint-disable-next-line
   const dataNetLiquidity = useMemo(() => {
     if (!data || isLoading) return [];

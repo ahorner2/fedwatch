@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   DarkModeOutlined,
   LightModeOutlined,
@@ -16,30 +16,32 @@ import {
   Toolbar,
   useTheme,
 } from "@mui/material";
-import { useHistory } from "react-router-dom";
 
-const Navbar = ({ isSidebarOpen, setIsSidebarOpen, navItems }) => {
+const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
+  const base = "https://fedwatch-frontend.onrender.com";
+  const pages = ["/list", "/net", "/breakdown", "/daily", "/monthly", "/msupply"]
 
   const handleSearchChange = (event) => {
     const value = event.target.value;
     setSearchValue(value);
 
     // Filter navItems on search value
-    const filteredResults = navItems.filter(
+    const filteredResults = searchResults.filter(
       (item) =>
         item.text.toLowerCase().includes(value.toLowerCase()) && item.icon
     );
     setSearchResults(filteredResults);
   };
 
+
   const handleSearchSubmit = (event) => {
     event.preventDefault();
-    // search functionality here
+    // search funtionality here
     console.log("Search submitted:", searchValue);
     setSearchValue("");
   };

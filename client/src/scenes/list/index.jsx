@@ -1,7 +1,8 @@
 import React from "react";
-import { Box, LinearProgress, useTheme } from "@mui/material";
+import { Box, LinearProgress, useTheme, Tooltip } from "@mui/material";
 import Header from "components/Header";
 import { DataGrid } from "@mui/x-data-grid";
+import { HelpOutlineOutlined } from "@mui/icons-material";
 import { useGetListQuery } from "state/api";
 import DataGridCustomToolbar from "components/DataGridCustomToolbar";
 
@@ -22,13 +23,24 @@ const List = ({ isDashboard = false }) => {
       cellClassName: "name-column--cell",
       renderCell: (params) => {
         const date = new Date(params.value);
-        const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
-        return <span>{formattedDate}</span>
+        const formattedDate = `${
+          date.getMonth() + 1
+        }/${date.getDate()}/${date.getFullYear()}`;
+        return <span>{formattedDate}</span>;
       },
     },
     {
       field: "fed",
-      headerName: "Fed",
+      headerName: (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          Fed{" "}
+          <Tooltip
+            title="Each balance sheet category has its assets and liabilities. The Fed's primary assets are Treasury securities, while its liabilities include reserves held by banks, cash balances held by the Treasury, and ON RPP balances held by MMFs."
+            placement="top">
+            <HelpOutlineOutlined fontSize="small" />
+          </Tooltip>
+        </div>
+      ),
       flex: 1,
       renderCell: (params) =>
         `$${Number(params.value).toLocaleString("en-US")}`,
@@ -44,7 +56,16 @@ const List = ({ isDashboard = false }) => {
     },
     {
       field: "rrp",
-      headerName: "RRP",
+      headerName: (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          RRP{" "}
+          <Tooltip
+            title="A reverse repurchase agreement sees the Desk sell securities through its System Open Market Account (SOMA) with an agreement to repurchase the same security at a specified price and time. This leaves the SOMA portfolio balanced, temporarily shifting Fed liabilities to to despository institutions."
+            placement="top">
+            <HelpOutlineOutlined fontSize="small" />
+          </Tooltip>
+        </div>
+      ),
       flex: 1,
       renderCell: (params) =>
         `$${Number(params.value).toLocaleString("en-US")}`,
@@ -60,7 +81,16 @@ const List = ({ isDashboard = false }) => {
     },
     {
       field: "tga",
-      headerName: "TGA",
+      headerName: (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          TGA{" "}
+          <Tooltip
+            title="The Treasury General Account can be thought of as the Fed's checking account. Its assets include all cash deposits held within the account, while its liabilities are represented by the securities it issues."
+            placement="top">
+            <HelpOutlineOutlined fontSize="small" />
+          </Tooltip>
+        </div>
+      ),
       flex: 1,
       renderCell: (params) =>
         `$${Number(params.value).toLocaleString("en-US")}`,
@@ -76,7 +106,16 @@ const List = ({ isDashboard = false }) => {
     },
     {
       field: "net_liquidity",
-      headerName: "Net Liquidity",
+      headerName: (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          Net Liquidity {" "}
+          <Tooltip
+            title="Net Liquidity = FED - (TGA + RRP)"
+            placement="top">
+            <HelpOutlineOutlined fontSize="small" />
+          </Tooltip>
+        </div>
+      ),
       flex: 1,
       renderCell: (params) =>
         `$${Number(params.value).toLocaleString("en-US")}`,

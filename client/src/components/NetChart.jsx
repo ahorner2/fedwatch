@@ -2,10 +2,12 @@ import React, { useMemo } from "react";
 import { ResponsiveLine } from "@nivo/line";
 import { useTheme } from "@mui/material";
 import { useGetNetQuery } from "state/api";
+import CustomTooltip from "./CustomTooltip";
 
 const NetChart = ({ isDashboard = false }) => {
   const theme = useTheme();
   const { data, isLoading } = useGetNetQuery();
+
   // eslint-disable-next-line
   const dataNetLiquidity = useMemo(() => {
     // eslint-disable-next-line
@@ -25,7 +27,8 @@ const NetChart = ({ isDashboard = false }) => {
     };
     const result = [netLine];
     return result;
-  }, [data]); // eslint-disable-next-line
+  // eslint-disable-next-line
+  }, [data]); 
 
   return (
     <ResponsiveLine
@@ -63,8 +66,18 @@ const NetChart = ({ isDashboard = false }) => {
           },
         },
         tooltip: {
+          basic: {
+            whiteSpace: "nowrap",
+            display: "flex",
+            position: "absolute",
+          },
           container: {
             color: theme.palette.primary.main,
+            zIndex: 9999,
+            position: "absolute",
+          },
+          table: {
+            // position: "absolute",
           },
         },
       }}
@@ -110,7 +123,7 @@ const NetChart = ({ isDashboard = false }) => {
       xFormat={"time:%b-%d-%y"}
       enableGridX={false}
       enableGridY={false}
-      pointSize={!isDashboard ? 7 : 3}
+      pointSize={!isDashboard ? 7 : 0}
       pointColor={{ theme: "background" }}
       pointBorderWidth={2}
       pointBorderColor={{ from: "serieColor" }}
@@ -130,6 +143,7 @@ const NetChart = ({ isDashboard = false }) => {
         },
       ]}
       fill={[{ match: "*", id: "gradientC" }]}
+      tooltip={CustomTooltip}
     />
   );
 };

@@ -21,6 +21,7 @@ import {
   TableChartOutlined,
   StackedBarChartOutlined,
   MonetizationOnOutlined,
+  AutoStoriesOutlined,
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -66,6 +67,14 @@ const navItems = [
   {
     text: "MSupply",
     icon: <MonetizationOnOutlined />,
+  },
+  {
+    text: "Resources",
+    icon: null,
+  },
+  {
+    text: "Glossary",
+    icon: <AutoStoriesOutlined />,
   },
 ];
 
@@ -138,7 +147,7 @@ const Sidebar = ({
               {navItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (
-                    <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
+                    <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem", fontWeight: "500" }}>
                       {text}
                     </Typography>
                   );
@@ -146,7 +155,11 @@ const Sidebar = ({
                 const lcText = text.toLowerCase();
 
                 return (
-                  <ListItem key={text} disablePadding>
+                  <ListItem key={text} disablePadding sx={{
+                    "& .MuiTypography-body1": {
+                      fontWeight: 400,
+                      }
+                    }}>
                     <ListItemButton
                       onClick={() => {
                         navigate(`/${lcText}`);
@@ -161,7 +174,8 @@ const Sidebar = ({
                           active === lcText
                             ? theme.palette.primary[600]
                             : theme.palette.secondary[100],
-                      }}>
+                      }}
+                    >
                       <ListItemIcon
                         sx={{
                           ml: "2rem",

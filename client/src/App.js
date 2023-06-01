@@ -12,6 +12,7 @@ import Daily from "scenes/daily";
 import Breakdown from "scenes/breakdown";
 import Monthly from "scenes/monthly";
 import MSupply from "scenes/msupply";
+import Glossary from "scenes/glossary";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -32,6 +33,7 @@ function App() {
               <Route path="/daily" element={<Daily />} />
               <Route path="/monthly" element={<Monthly />} />
               <Route path="/msupply" element={<MSupply />} />
+              <Route path="/glossary" element={<Glossary />} />
             </Route>
           </Routes>
         </ThemeProvider>

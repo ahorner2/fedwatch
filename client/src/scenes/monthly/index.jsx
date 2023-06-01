@@ -11,7 +11,9 @@ const Monthly = () => {
   const dataWithViews = useMemo(() => {
     if (!data || isLoading) return [];
 
-    const sortedData = [...data].sort((a, b) => new Date(a.date) - new Date(b.date));
+    const sortedData = [...data].sort(
+      (a, b) => new Date(a.date) - new Date(b.date)
+    );
     const lastMonthData = sortedData.slice(-28);
 
     return lastMonthData.map((row) => ({
@@ -20,6 +22,7 @@ const Monthly = () => {
       tga: parseFloat(row.tga),
       rrp: parseFloat(row.rrp),
     }));
+  // eslint-disable-next-line
   }, [data]);
 
   return (
