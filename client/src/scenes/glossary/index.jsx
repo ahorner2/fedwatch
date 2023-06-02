@@ -46,14 +46,14 @@ const Glossary = () => {
           sx={{
             "& .MuiButtonBase-root": {
               backgroundColor: theme.palette.background.alt,
-              color: theme.palette.secondary[200],
+              color: theme.palette.secondary[300],
             },
             "& .MuiCollapse-root": {
               backgroundColor: theme.palette.background.alt,
             },
           }}>
           <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
-            <Typography color={theme.palette.secondary[200]} variant="h5">
+            <Typography color={theme.palette.secondary[300]} variant="h5">
               Federal Net Liquidity:
             </Typography>
           </AccordionSummary>
@@ -72,27 +72,29 @@ const Glossary = () => {
           sx={{
             "& .MuiButtonBase-root": {
               backgroundColor: theme.palette.background.alt,
-              color: theme.palette.secondary[200],
+              color: theme.palette.secondary[300],
             },
             "& .MuiCollapse-root": {
               backgroundColor: theme.palette.background.alt,
             },
           }}>
           <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
-            <Typography color={theme.palette.secondary[200]} variant="h5">
+            <Typography color={theme.palette.secondary[300]} variant="h5">
               Federal Reserve (Fed):
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
+            <Typography color={theme.palette.secondary[200]}>
               <strong>
                 The Federal Reserve is the central bank of the United States,
                 and is responsible for crafting and conducting monetary policies
-                meant to promote sustainable economic growth. The balance sheet,
-                then, dictates how these goals are accomplished. By routing
-                funds through its various arms, the Fed descides when and how to
-                reduce or expand its holdings. As an, admittedly,
-                oversimplification:
+                meant to promote sustainable economic growth. The balance sheet
+                dictates how these goals are accomplished. By routing funds
+                through its various arms, the Fed descides when and how to
+                reduce or expand its holdings.
+                <br />
+                <br />
+                As an example:
               </strong>
             </Typography>
             <List>
@@ -116,7 +118,7 @@ const Glossary = () => {
               </ListItem>
             </List>
             <br />
-            <Typography>
+            <Typography color={theme.palette.secondary[200]}>
               <strong>
                 The Fed has another investment arm quite recent in its
                 development. The System Open Market Account (SOMA), through
@@ -126,25 +128,25 @@ const Glossary = () => {
                 In recent years the SOMA's become a critical tool for several
                 purposes:
               </strong>
-              <List>
-                <ListItem>
-                  <Typography fontStyle="italic">
-                    1. Managing the Fed's trove of assets, particularly those
-                    acquired in the wake of the 2008 financial crisis.
-                  </Typography>
-                </ListItem>
-                <ListItem>
-                  <Typography fontStyle="italic">
-                    2. As a store of emergency liquidity.
-                  </Typography>
-                </ListItem>
-                <ListItem>
-                  <Typography fontStyle="italic">
-                    3. As collateral for its liabilities.
-                  </Typography>
-                </ListItem>
-              </List>
             </Typography>
+            <List>
+              <ListItem>
+                <Typography fontStyle="italic">
+                  1. Managing the Fed's trove of assets, particularly those
+                  acquired in the wake of the 2008 financial crisis.
+                </Typography>
+              </ListItem>
+              <ListItem>
+                <Typography fontStyle="italic">
+                  2. As a store of emergency liquidity.
+                </Typography>
+              </ListItem>
+              <ListItem>
+                <Typography fontStyle="italic">
+                  3. As collateral for its liabilities.
+                </Typography>
+              </ListItem>
+            </List>
           </AccordionDetails>
         </Accordion>
         {/* Treasury General Acc */}
@@ -154,7 +156,7 @@ const Glossary = () => {
           sx={{
             "& .MuiButtonBase-root": {
               backgroundColor: theme.palette.background.alt,
-              color: theme.palette.secondary[200],
+              color: theme.palette.secondary[300],
             },
             "& .MuiCollapse-root": {
               backgroundColor: theme.palette.background.alt,
@@ -166,13 +168,13 @@ const Glossary = () => {
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
+            <Typography color={theme.palette.secondary[200]}>
               <strong>
                 The TGA can be thought of as the Federal Reserve's checking
                 account, from which the U.S. Government makes its payments. It's
                 maintained by designation parties, primarily Federal Reserve
                 Banks and their subsidiaries, with the goal of handling
-                day-to-day money transactions including:
+                day-to-day money transactions, including:
               </strong>
             </Typography>
             <List>
@@ -197,34 +199,34 @@ const Glossary = () => {
               </ListItem>
             </List>
             <br />
-            <Typography>
+            <Typography color={theme.palette.secondary[200]}>
               <strong>
                 The Treasury General Account Program is made up of three
                 distinct services used to check deposits and receive cash:
               </strong>
-              <List>
-                <ListItem>
-                  <Typography fontStyle="italic">
-                    1. The TGA Network, or a conglomerate of commerical
-                    financial institutions tasked with receiving and reconciling
-                    over-the-counter (OTC) cash and check deposits for
-                    government agencies.
-                  </Typography>
-                </ListItem>
-                <ListItem>
-                  <Typography fontStyle="italic">
-                    2. The Seized Currency Collection (SCCN), which specializes
-                    in corralling funds seized by law enforcement.
-                  </Typography>
-                </ListItem>
-                <ListItem>
-                  <Typography fontStyle="italic">
-                    3. The Mail-in TGA (MITGA) only receives deposits sent in
-                    via mail by various agencies.
-                  </Typography>
-                </ListItem>
-              </List>
             </Typography>
+            <List>
+              <ListItem>
+                <Typography fontStyle="italic">
+                  1. The TGA Network, or a conglomerate of commerical financial
+                  institutions tasked with receiving and reconciling
+                  over-the-counter (OTC) cash and check deposits for government
+                  agencies.
+                </Typography>
+              </ListItem>
+              <ListItem>
+                <Typography fontStyle="italic">
+                  2. The Seized Currency Collection (SCCN), which specializes in
+                  corralling funds seized by law enforcement.
+                </Typography>
+              </ListItem>
+              <ListItem>
+                <Typography fontStyle="italic">
+                  3. The Mail-in TGA (MITGA) only receives deposits sent in via
+                  mail by various agencies.
+                </Typography>
+              </ListItem>
+            </List>
           </AccordionDetails>
         </Accordion>
         {/* RRP and ON RPP */}
@@ -234,19 +236,19 @@ const Glossary = () => {
           sx={{
             "& .MuiButtonBase-root": {
               backgroundColor: theme.palette.background.alt,
-              color: theme.palette.secondary[200],
+              color: theme.palette.secondary[300],
             },
             "& .MuiCollapse-root": {
               backgroundColor: theme.palette.background.alt,
             },
           }}>
           <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
-            <Typography color={theme.palette.secondary[200]} variant="h5">
+            <Typography color={theme.palette.secondary[300]} variant="h5">
               Reverse Repurchase Agreements (RRP):
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
+            <Typography color={theme.palette.secondary[200]}>
               RRP, or reverse repo transactions, occur when the FED sells
               Treasury bonds to a counterparty, with agreement to repurchase the
               same security at a later date. The ON RPP (Overnight RRP) facility
@@ -280,19 +282,19 @@ const Glossary = () => {
           sx={{
             "& .MuiButtonBase-root": {
               backgroundColor: theme.palette.background.alt,
-              color: theme.palette.secondary[200],
+              color: theme.palette.secondary[300],
             },
             "& .MuiCollapse-root": {
               backgroundColor: theme.palette.background.alt,
             },
           }}>
           <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
-            <Typography color={theme.palette.secondary[200]} variant="h5">
+            <Typography color={theme.palette.secondary[300]} variant="h5">
               Federal Assets & Liabilities:
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
+            <Typography color={theme.palette.secondary[200]}>
               Like any balance sheet, the Federal Reserve's (Fed) tracks its
               assets and liabilites.
               <br />
@@ -337,7 +339,7 @@ const Glossary = () => {
                 </Typography>
               </ListItem>
             </List>
-            <Typography>
+            <Typography color={theme.palette.secondary[200]}>
               <strong>
                 Where there's assets, there's liabilities. The Fed's include:
               </strong>
@@ -376,25 +378,23 @@ const Glossary = () => {
           sx={{
             "& .MuiButtonBase-root": {
               backgroundColor: theme.palette.background.alt,
-              color: theme.palette.secondary[200],
+              color: theme.palette.secondary[300],
             },
             "& .MuiCollapse-root": {
               backgroundColor: theme.palette.background.alt,
             },
           }}>
           <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
-            <Typography color={theme.palette.secondary[200]} variant="h5">
+            <Typography color={theme.palette.secondary[300]} variant="h5">
               TGA Assets & Liabilites:
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              <strong>
                 The Treasury's assets lie in contrast to the Federal Reserve,
                 and are primarily comprised of the cash it holds in its
                 "checking account", the TGA. It's liabilities are similarly
                 straight-forward - the securities it manages.
-              </strong>
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -405,25 +405,26 @@ const Glossary = () => {
           sx={{
             "& .MuiButtonBase-root": {
               backgroundColor: theme.palette.background.alt,
-              color: theme.palette.secondary[200],
+              color: theme.palette.secondary[300],
             },
             "& .MuiCollapse-root": {
               backgroundColor: theme.palette.background.alt,
             },
           }}>
           <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
-            <Typography color={theme.palette.secondary[200]} variant="h5">
+            <Typography color={theme.palette.secondary[300]} variant="h5">
               M1 Supply:
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography color={theme.palette.secondary[100]}>
+            <Typography color={theme.palette.secondary[200]}>
               <strong>
                 M1 tracks the most liquid portion of the money supply including
                 all coins, currencies, banknotes, and overnight deposits in
                 circulation, while excluding instruments like stocks and bonds.
                 M1 considers:
               </strong>
+            </Typography>
               <List>
                 <ListItem>
                   <Typography fontStyle="italic">
@@ -447,7 +448,6 @@ const Glossary = () => {
                   </Typography>
                 </ListItem>
               </List>
-            </Typography>
           </AccordionDetails>
         </Accordion>
         {/* M2 Supply */}
@@ -457,19 +457,19 @@ const Glossary = () => {
           sx={{
             "& .MuiButtonBase-root": {
               backgroundColor: theme.palette.background.alt,
-              color: theme.palette.secondary[200],
+              color: theme.palette.secondary[300],
             },
             "& .MuiCollapse-root": {
               backgroundColor: theme.palette.background.alt,
             },
           }}>
           <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
-            <Typography color={theme.palette.secondary[200]} variant="h5">
+            <Typography color={theme.palette.secondary[300]} variant="h5">
               M2 Supply:
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
+            <Typography color={theme.palette.secondary[200]}>
               <strong>
                 The M2 offers a broader measure of an economies money supply. It
                 includes all items comprising the M1 plus slightly less liquid
@@ -510,26 +510,24 @@ const Glossary = () => {
           sx={{
             "& .MuiButtonBase-root": {
               backgroundColor: theme.palette.background.alt,
-              color: theme.palette.secondary[200],
+              color: theme.palette.secondary[300],
             },
             "& .MuiCollapse-root": {
               backgroundColor: theme.palette.background.alt,
             },
           }}>
           <AccordionSummary expandIcon={<ExpandMoreOutlined />}>
-            <Typography color={theme.palette.secondary[200]} variant="h5">
+            <Typography color={theme.palette.secondary[300]} variant="h5">
               M3 Supply:
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              <strong>
                 The M3 formerly accounted for all currency in circulation,
                 including dollars held in the reserves of foreign nations. As of
                 2006, this was discontinued in favor of a per country split.
                 Today, outside of aggregation, the M3 for the United States
                 should mirror the M2 supply.
-              </strong>
             </Typography>
           </AccordionDetails>
         </Accordion>
