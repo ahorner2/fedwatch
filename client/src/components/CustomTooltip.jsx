@@ -1,9 +1,13 @@
 import React, { useRef } from "react";
+import moment from "moment";
 
 const CustomTooltip = ({ point, numElementsX }) => {
   const containerRef = useRef(null);
-  // const xPosition = point.x; // cursor 'x' position 
   const isFirstHalf = point.index < numElementsX / 2;
+
+  const formattedDate = moment(point.data.xFormatted, "MMM-DD-YY").format(
+    "MMM D, YYYY"
+  );
 
   return (
     <div className="chart-container">
@@ -12,7 +16,7 @@ const CustomTooltip = ({ point, numElementsX }) => {
         className="tooltip-container"
         style={isFirstHalf ? { left: 0 } : { right: 0 }}
       >
-        <div>{point.data.xFormatted}</div>
+        <div>{formattedDate}</div>
         <div>
           <span
             style={{

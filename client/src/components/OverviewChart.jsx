@@ -3,6 +3,7 @@ import { useTheme } from "@mui/material";
 import { useGetMSupplyQuery } from "state/api";
 import { ResponsiveLine } from "@nivo/line";
 import moment from "moment";
+import CustomTooltip from "./CustomTooltip";
 
 const getRequiredDateFormat = (timeStamp, format = "MM-DD-YYYY") => {
   return moment(timeStamp).format(format);
@@ -11,7 +12,6 @@ const getRequiredDateFormat = (timeStamp, format = "MM-DD-YYYY") => {
 const OverviewChart = ({ isDashboard = false, view }) => {
   const theme = useTheme();
   const { data, isLoading } = useGetMSupplyQuery();
-  console.log("🚀 ~ file: OverviewChart.jsx:10 ~ OverviewChart ~ data:", data)
 
   // useMemo only calcs data once
   const [m1Line, m2Line, m3Line] = useMemo(() => {
@@ -75,8 +75,6 @@ const OverviewChart = ({ isDashboard = false, view }) => {
     
     return [[m1Line], [m2Line], [m3Line]];
   }, [data]); // eslint-disable-line react-hooks/exhaustive-deps
-  
-  console.log("🚀 ~ file: OverviewChart.jsx:89 ~ const[m1Line,m2Line,m3Line]=useMemo ~ m1Line:", m1Line)
 
   if (!data || isLoading) return "Loading...";
 
@@ -151,11 +149,11 @@ const OverviewChart = ({ isDashboard = false, view }) => {
       areaOpacity={0.2}
       areaBaselineValue={
         view === "M1"
-          ? 3979000000000
+          ? 1122100000000
           : view === "M2"
-          ? 15400000000000
+          ? 4666200000000
           : view === "M3"
-          ? 15400000000000
+          ? 4666200000000
           : 0
       }
       axisTop={null}
@@ -196,7 +194,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
       }}
       enableGridX={false}
       enableGridY={false}
-      pointSize={10}
+      pointSize={0}
       pointColor={{ theme: "background" }}
       pointBorderWidth={2}
       pointBorderColor={{ from: "serieColor" }}
@@ -204,6 +202,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
       useMesh={true}
       crosshairType="x"
       enableSlices={false} // crosshair "free" movement
+      tooltip={CustomTooltip}
       transportation
       defs={[
         {
