@@ -108,20 +108,24 @@ tspan {
   fill: #ffedc2;
 }
 
-rect {
+#root > div > div > div > div > div.MuiBox-root.css-w7wi1p > div > div > svg > g.recharts-layer.recharts-brush > rect:nth-child(1) {
   fill: #0d1025;
 }
 
 .recharts-wrapper {
   fill: #4d547d !important;
 }
+
+.recharts-brush {
+  height: 30px;
+}
+
 .recharts-brush-slide {
   fill: #21295c !important;
   fill-opacity: 100%;
 }
 
 .recharts-brush-traveller {
-  fill: #000;
   stroke: #335cd7;
   stroke-width: 1px;
 }
@@ -129,8 +133,4 @@ rect {
 .recharts-brush-texts {
   user-select: none;
 }
-
-
-
-
 

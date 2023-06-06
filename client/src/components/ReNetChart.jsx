@@ -86,7 +86,6 @@ const ReNetChart = ({ isDashboard = false }) => {
           domain={["dataMin", "dataMax"]}
           tickFormatter={formatYAxis}></YAxis>
         <Tooltip content={<ReCustomTooltip />} />
-
         <Area
           type="monotone"
           dataKey="net_liquidity"
