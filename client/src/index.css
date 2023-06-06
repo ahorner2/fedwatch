@@ -66,3 +66,71 @@ body,
   border-color: rgb(255, 255, 255);
   pointer-events: none;
 }
+/* Recharts Custom Tooltip */
+.tooltip-date {
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.tooltip-content {
+  display: inline-flex;
+  align-items: center;
+}
+
+.tooltip-label {
+  font-size: 12px;
+  color: #777777;
+  margin-right: 4px;
+}
+
+.tooltip-marker {
+  width: 10px;
+  height: 10px;
+  background-color: #335cd7;
+  border-radius: 50%;
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.tooltip-style {
+  display: "inline-flex";
+  position: "relative";
+  margin-right: "4px";
+  border-radius: "10px";
+  width: "10px";
+  height: "10px";
+  background-color: "#335cd7";
+}
+/* Recharts chart border */
+tspan { 
+  font-size: 12px;
+  fill: #ffedc2;
+}
+
+rect {
+  fill: #0d1025;
+}
+
+.recharts-wrapper {
+  fill: #4d547d !important;
+}
+.recharts-brush-slide {
+  fill: #21295c !important;
+  fill-opacity: 100%;
+}
+
+.recharts-brush-traveller {
+  fill: #000;
+  stroke: #335cd7;
+  stroke-width: 1px;
+}
+
+.recharts-brush-texts {
+  user-select: none;
+}
+
+
+
+
+

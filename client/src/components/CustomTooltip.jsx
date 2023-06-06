@@ -14,9 +14,10 @@ const CustomTooltip = ({ point, numElementsX }) => {
       <div
         ref={containerRef}
         className="tooltip-container"
-        style={isFirstHalf ? { left: 0 } : { right: 0 }}
-      >
-        <div>{formattedDate}</div>
+        style={isFirstHalf ? { left: 0 } : { right: 0 }}>
+        <div>
+          <strong>{formattedDate}</strong>
+        </div>
         <div>
           <span
             style={{

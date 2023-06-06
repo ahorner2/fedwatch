@@ -1,13 +1,50 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useRef } from "react";
 import { useTheme } from "@mui/material";
 import { useGetMSupplyQuery } from "state/api";
 import { ResponsiveLine } from "@nivo/line";
 import moment from "moment";
-import CustomTooltip from "./CustomTooltip";
+// import CustomTooltip from "./CustomTooltip";
 
 const getRequiredDateFormat = (timeStamp, format = "MM-DD-YYYY") => {
   return moment(timeStamp).format(format);
 };
+
+const CustomTooltip = ({ point, numElementsX }) => {
+  const containerRef = useRef(null);
+  const isFirstHalf = point.index < numElementsX / 2;
+
+  const mSupplyFormattedDate = moment(point.data.xFormatted, "M/D/YYYY").format(
+    "MMM Do, YYYY"
+  );
+
+  return (
+    <div className="chart-container">
+      <div
+        ref={containerRef}
+        className="tooltip-container"
+        style={isFirstHalf ? { left: 0 } : { right: 0 }}>
+        <div>
+          <strong>{mSupplyFormattedDate}</strong>
+        </div>
+        <div>
+          <span
+            style={{
+              display: "inline-flex",
+              position: "relative",
+              marginRight: "4px",
+              borderRadius: "10px",
+              width: "10px",
+              height: "10px",
+              backgroundColor: "#335cd7",
+            }}
+          />
+          &nbsp;&nbsp;{point.data.yFormatted}
+        </div>
+      </div>
+    </div>
+  );
+};
+  
 
 const OverviewChart = ({ isDashboard = false, view }) => {
   const theme = useTheme();
@@ -142,7 +179,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
         stacked: false,
         reverse: false,
       }}
-      yFormat=" >-,.4s"
+      yFormat=" >-,.2f"
       xFormat="time:%m/%d/%Y"
       curve="catmullRom"
       enableArea={true}

@@ -27,8 +27,8 @@ const NetChart = ({ isDashboard = false }) => {
     };
     const result = [netLine];
     return result;
-  // eslint-disable-next-line
-  }, [data]); 
+    // eslint-disable-next-line
+  }, [data]);
 
   return (
     <ResponsiveLine
@@ -86,11 +86,15 @@ const NetChart = ({ isDashboard = false }) => {
         type: "time",
         format: "%Y-%m-%dT%H:%M:%S.%LZ",
         precision: "day",
+        // interval: {
+        //   format: "%m-%d-%y",
+        //   count: zoomLevel, // Adjust the step based on the zoom level
+        // },
       }}
       yScale={{
         type: "linear",
-        min: "5400000000000",
-        max: "6400000000000",
+        min: 5400000000000,
+        max: 6400000000000,
         stacked: true,
         reverse: false,
       }}

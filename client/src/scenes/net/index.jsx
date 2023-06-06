@@ -3,6 +3,7 @@ import { Box, useTheme } from '@mui/material';
 import { useGetNetQuery } from 'state/api';
 import Header from 'components/Header';
 import NetChart from 'components/NetChart';
+import ReNetChart from "components/ReNetChart";
 
 const Net = ({ isDashboard = false }) => {
   // eslint-disable-next-line
@@ -36,7 +37,7 @@ const Net = ({ isDashboard = false }) => {
         subtitle={"Federal net liquidity per day"}
       />
       <Box mt="40px" height="75vh">
-        <NetChart />
+        <ReNetChart />
       </Box>
     </Box>
   );
