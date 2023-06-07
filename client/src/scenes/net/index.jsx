@@ -2,7 +2,6 @@ import React, { useMemo } from "react";
 import { Box, useTheme } from '@mui/material';
 import { useGetNetQuery } from 'state/api';
 import Header from 'components/Header';
-import NetChart from 'components/NetChart';
 import ReNetChart from "components/ReNetChart";
 
 const Net = ({ isDashboard = false }) => {
@@ -28,7 +27,7 @@ const Net = ({ isDashboard = false }) => {
     };
     const result = [netLine];
     return result;
-  }, [data]);
+  }, [data, isLoading]);
 
   return (
     <Box m="1.5rem 2.5rem">

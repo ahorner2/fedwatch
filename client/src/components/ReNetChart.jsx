@@ -1,20 +1,20 @@
 import {
-  LineChart,
-  Line,
+  // LineChart,
+  // Line,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
+  // Legend,
   Brush,
   AreaChart,
   Area,
-  Label,
+  // Label,
   ResponsiveContainer,
 } from "recharts";
 import { useGetNetQuery } from "state/api";
 import { useTheme } from "@mui/material";
-import React, { useMemo, useRef } from "react";
+import React, { useMemo } from "react";
 import moment from "moment";
 import ReCustomTooltip from "./ReCustomTooltip";
 
@@ -74,9 +74,10 @@ const ReNetChart = ({ isDashboard = false }) => {
           bottom: 0,
         }}>
         <defs>
-          <linearGradient id="colorNet" x1="1" y1="1" x2="0" y2="0">
-            <stop offset="0%" stopColor="#f9d8af" stopOpacity={0} />
-            <stop offset="100%" stopColor="#f9d8af" stopOpacity={0.7} />
+          <linearGradient id="colorNet" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="30%" stopColor="#f9d8af" stopOpacity={0.8} />
+            <stop offset="60%" stopColor="#fce4c5" stopOpacity={0.3} />
+            <stop offset="95%" stopColor="#4d547d" stopOpacity={0} />
           </linearGradient>
         </defs>
         <CartesianGrid strokeDasharray="3 3" stroke="false" />
@@ -90,14 +91,12 @@ const ReNetChart = ({ isDashboard = false }) => {
           type="monotone"
           dataKey="net_liquidity"
           stroke={theme.palette.secondary[300]}
+          strokeWidth="2px"
           fill="url(#colorNet)"
           fillOpacity={0.2}
           points={[]}
         />
-        <Brush
-          dataKey="date"
-          tickFormatter={formatXAxis}
-        />
+        <Brush dataKey="date" tickFormatter={formatXAxis} />
       </AreaChart>
     </ResponsiveContainer>
   );

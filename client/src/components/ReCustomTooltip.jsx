@@ -6,7 +6,7 @@ const ReCustomTooltip = ({ active, payload, label }) => {
 
   if (active && payload && payload.length) {
     const point = payload[0];
-    const formattedDate = moment(point.payload.date).format("MMM D, YYYY");
+    const formattedDate = moment(point.payload.x || point.payload.date).format("MMM D, YYYY");
     const formattedValues = parseFloat(point.value).toLocaleString("en-US", {
       maximumFractionDigits: 2,
     });

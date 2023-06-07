@@ -107,8 +107,12 @@ tspan {
   font-size: 12px;
   fill: #ffedc2;
 }
-
+/* Recharts sans class brush eles */
 #root > div > div > div > div > div.MuiBox-root.css-w7wi1p > div > div > svg > g.recharts-layer.recharts-brush > rect:nth-child(1) {
+  fill: #0d1025;
+}
+/* Recharts sans class brush eles */
+#root > div > div > div > div > div.MuiBox-root.css-owy8mi > div.MuiBox-root.css-usocnc > div.recharts-responsive-container > div > svg > g.recharts-layer.recharts-brush > rect:nth-child(1) {
   fill: #0d1025;
 }
 
@@ -121,7 +125,7 @@ tspan {
 }
 
 .recharts-brush-slide {
-  fill: #21295c !important;
+  fill: #141937 !important;
   fill-opacity: 100%;
 }
 

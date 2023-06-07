@@ -5,6 +5,7 @@ import Navbar from "components/Navbar";
 import Sidebar from "components/Sidebar";
 import { useGetBalanceQuery } from "state/api";
 import { useSelector } from "react-redux";
+import ProSidebar from "components/ProSidebar";
 
 const Layout = () => {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
@@ -20,6 +21,7 @@ const Layout = () => {
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
       />
+      {/* <ProSidebar isNonMobile={isNonMobile}/> */}
       <Box flexGrow={1}>
         <Navbar
           isSidebarOpen={isSidebarOpen}

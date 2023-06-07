@@ -14,11 +14,10 @@ import {
 import { useGetMSupplyQuery } from 'state/api';
 import { DataGrid } from '@mui/x-data-grid';
 import DataGridCustomToolbar from 'components/DataGridCustomToolbar';
-import OverviewChart from 'components/OverviewChart';
 import StatBox from "components/StatBox";
 import { styled } from "@mui/system";
 import { HelpOutlineOutlined } from "@mui/icons-material";
-
+import ReOverviewChart from "components/ReMSupply";
 
 
 const MSupply = () => {
@@ -180,7 +179,7 @@ const MSupply = () => {
             title="Current M3 (US)"
             subtitle={false}
             increase={false}
-            description={"Should be equal to M2"}
+            description={"Should be near even with M2"}
             value="20.82T"
           />
         </Box>
@@ -202,7 +201,7 @@ const MSupply = () => {
               <MenuItem value="M3">M3 Supply</MenuItem>
             </Select>
           </FormControl>
-          <OverviewChart view={view} />
+          <ReOverviewChart view={view} />
         </Box>
       </Box>
 
